@@ -28,6 +28,7 @@ Vue.js
 Student Profile view with current score and update functionality
 Dockerised Environment
 Unit Tests
+Complete Documentation
 
 
 I've used
