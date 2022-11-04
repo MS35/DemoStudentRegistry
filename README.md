@@ -22,13 +22,16 @@ Strong password validation
 Can access pages using PostMan once deployed
 
 Also not completed are:
-Error messaging/logging for the user
-Current score for the student.
-Vue.js
-Student Profile view with current score and update functionality
-Dockerised Environment
-Unit Tests
-Complete Documentation
+Error messaging/logging for the user (5)
+Current score for the student.(3)
+Vue.js(5)
+Student Profile view with current score and update functionality(2)
+Dockerised Environment(8)
+Unit Tests(3)
+Complete Documentation(2)
++27 etc area codes for cell numbers(3)
+Final UI styling (Was supposed to switch frameworks anyway)(3)
+Student Searching(2)
 
 
 I've used
