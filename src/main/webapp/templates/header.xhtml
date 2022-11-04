@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+
+<body>
+	<ui:composition>
+		<h:form>
+
+			<p:menubar>
+				<p:menuitem value="Home" icon="pi pi-home"
+					url="/landingPage.xhtml">
+				</p:menuitem>
+
+				<p:menuitem value="Student Scores" icon="pi pi-users"
+					url="/studentScores.xhtml">
+					<f:ajax render="@all" />
+				</p:menuitem>
+
+				<p:menuitem value="Profile" icon="pi pi-money-bill"
+					url="/studentProfile.xhtml">
+					<f:ajax render="@all" />
+				</p:menuitem>
+
+				<p:menuitem value="Add Score" icon="pi pi-money-bill"
+					url="/addScore.xhtml"
+							rendered="#{userController.admin}">
+					<f:ajax render="@all" />
+				</p:menuitem>
+
+				<p:menuitem value="Add Student" icon="pi pi-money-bill"
+					url="/addStudent.xhtml"
+							rendered="#{userController.admin}">
+					<f:ajax render="@all" />
+				</p:menuitem>
+
+				<p:menuitem value="Logout" icon="pi pi-money-bill"
+					action="#{userController.logout()}">
+					<f:ajax render="@all" />
+				</p:menuitem>
+			</p:menubar>
+
+		</h:form>
+	</ui:composition>
+</body>
+</html>

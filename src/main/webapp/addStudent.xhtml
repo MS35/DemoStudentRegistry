@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<!-- Menu Bar -->
+	<ui:insert name="header">
+		<ui:include src="templates/header.xhtml"/>
+	</ui:insert>
+
+	<!-- Heading -->
+	<h1>Add Student</h1>
+
+	<br/>
+
+		<h:form>
+			<h:panelGrid columns="3" cellpadding="5">
+
+				<h:outputLabel for="nameInput" value="Name : "/>
+				<h:inputText id="nameInput" value="#{studentController.name}"
+							 required="true" requiredMessage="required*"/>
+				<h:message for="nameInput"/>
+
+				<h:outputLabel for="surnameInput" value="Surname : "/>
+				<h:inputText id="surnameInput" value="#{studentController.surname}"
+							 required="true" requiredMessage="required*"/>
+				<h:message for="surnameInput"/>
+
+				<h:outputLabel value="Cellphone Number : "/>
+				<h:inputText value="#{studentController.cellphoneNumber}"/>
+				<h:outputText/>
+
+				<h:outputLabel value="Date-of-Birth : "/>
+				<p:calendar value="#{studentController.dateOfBirth}"
+							pattern="dd/MM/yyyy"
+							navigator="true" yearRange="1900:+0"/>
+				<h:outputLabel/>
+
+				<h:commandButton
+						action="#{studentController.addStudent()}"
+						value="Add Student"/>
+				<h:commandButton
+						action="studentProfile"
+						value="Cancel"/>
+
+				</h:panelGrid>
+		</h:form>
+
+</h:body>
+
+
+</html>
+

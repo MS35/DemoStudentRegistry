@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transactional//EN"
+"http://wee.w3.org/TR/xhtml1/DTD/xhtml1-transactional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions">
+
+<h:head>
+</h:head>
+<h:body>
+
+	<!-- Menu Bar -->
+	<div>
+		<ui:insert name="header">
+			<ui:include src="templates/header.xhtml" />
+		</ui:insert>
+	</div>
+
+
+	<!-- Heading -->
+	<h1>Add Score</h1>
+	<br></br>
+
+	<div>
+		<!-- Data Capture -->
+		<h:form>
+			<div>
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText value="Date : "/>
+					<p:calendar value="#{scoreController.scoreDate}"
+								pattern="dd/MM/yyyy"
+								navigator="true" yearRange="1900:+0"/>
+
+					<h:outputText value="Name : " />
+					<h:selectOneMenu id="name" value="#{scoreController.studentId}">
+						<f:selectItems var="student" value ="#{studentController.studentIds}"/>
+					</h:selectOneMenu>
+
+					<h:outputText value="Score : " />
+					<p:inputNumber id="score" value="#{scoreController.score}"
+						thousandSeparator="&nbsp;"/>
+				</h:panelGrid>
+			</div>
+
+			<h:commandButton
+				action="#{scoreController.addScore()}"
+				value="Add Score" />
+		</h:form>
+	</div>
+
+</h:body>
+
+
+</html>
+

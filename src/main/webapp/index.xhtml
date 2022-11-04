@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<f:metadata>
+		<f:viewAction action="#{userController.reset()}" />
+	</f:metadata>
+
+</h:head>
+<h:body>
+
+	<div>
+		<h:form id="loginForm">
+			<h:messages autoUpdate="true" />
+
+			<h:panelGrid columns="2" cellpadding="5">
+
+				<h:outputText value="Email-Address : " />
+				<h:inputText id="emailAddress" value="#{userController.emailAddress}" />
+
+				<h:outputText value="Password : " />
+				<h:inputSecret id="password" value="#{userController.password}" />
+
+			</h:panelGrid>
+
+			<h:commandButton value="Login"
+				action="#{userController.login()}" />
+
+			<br></br>
+
+			<h:commandLink value="Register"
+				action= "registration.xhtml" />
+		</h:form>
+	</div>
+
+
+</h:body>
+
+</html>
+

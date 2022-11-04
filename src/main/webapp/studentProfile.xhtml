@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+</h:head>
+<h:body>
+
+    <!-- Menu Bar -->
+    <div>
+        <ui:insert name="header">
+            <ui:include src="templates/header.xhtml"/>
+        </ui:insert>
+    </div>
+
+
+    <!-- Heading -->
+    <h1>Profiles</h1>
+    <br/>
+
+
+    <!-- Profiles -->
+    <fieldset>
+        <legend>Students</legend>
+        <p:dataTable var="student"
+                     value="#{studentController.allStudents}"
+                     cellpadding="5"
+                     paginator="true"
+                     paginatorPosition="bottom"
+                     paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport}"
+                     rows="8">
+
+            <p:column headerText="Student">
+                #{student.fullName}
+            </p:column>
+
+            <p:column headerText="Average Score">
+                #{scoreController.getAverageScore(student)}
+            </p:column>
+
+        </p:dataTable>
+    </fieldset>
+    <br/>
+</h:body>
+
+
+</html>
+
