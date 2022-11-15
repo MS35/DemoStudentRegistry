@@ -1,6 +1,9 @@
 package com.lluqteq.demoShell.service.impl;
 
+import com.lluqteq.demoShell.domain.Score;
 import com.lluqteq.demoShell.domain.Student;
+import com.lluqteq.demoShell.repository.ScoreRepository;
+import com.lluqteq.demoShell.service.ScoreService;
 import com.lluqteq.demoShell.service.StudentService;
 import com.lluqteq.demoShell.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -21,10 +25,12 @@ public class StudentServiceImpl implements StudentService {
 	 */
 
 	private StudentRepository repository;
+	private ScoreService scoreService;
 
 	@Autowired
-	public StudentServiceImpl(StudentRepository repository) {
+	public StudentServiceImpl(StudentRepository repository, ScoreService scoreService) {
 		this.repository = repository;
+		this.scoreService = scoreService;
 	}
 
 	public List<Student> findAllStudents() {
@@ -48,7 +54,21 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public String generateStudentId(String name, String surname) {
-		return String.valueOf(findAllStudents().size()) + name.charAt(0) + surname.charAt(0) + LocalDate.now().getYear();
+		StringBuilder builder = new StringBuilder();
+		builder.append(name.charAt(0));
+		builder.append(LocalDate.now().getYear());
+		builder.append(findAllStudents().size());
+		builder.append(surname.charAt(0));
+		return builder.toString();
+	}
+
+	public Score getCurrentScore(Student student){
+		List<Score> studentScores = scoreService.getStudentScores(student);
+		Score currentScore =  new Score();
+		if(studentScores.size() > 0){
+			currentScore = studentScores.get(studentScores.size() -1);
+		}
+		return currentScore;
 	}
 
 }

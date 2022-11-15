@@ -1,5 +1,6 @@
 package com.lluqteq.demoShell.service;
 
+import com.lluqteq.demoShell.domain.Score;
 import com.lluqteq.demoShell.domain.Student;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface StudentService {
 	void save(String name, String surname);
 
 	String generateStudentId(String name, String surname);
+
+	Score getCurrentScore(Student student);
 
 }

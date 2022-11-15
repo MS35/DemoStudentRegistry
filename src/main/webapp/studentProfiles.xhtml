@@ -35,8 +35,20 @@
                      paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport}"
                      rows="8">
 
-            <p:column headerText="Student">
+            <p:column headerText="Student No.">
+                #{student.id}
+            </p:column>
+
+            <p:column headerText="Full Name">
                 #{student.fullName}
+            </p:column>
+
+            <p:column headerText="Cell No.">
+                #{student.cellphoneNumber}
+            </p:column>
+
+            <p:column headerText="Current Score">
+                #{scoreController.getCurrentScore(student)}
             </p:column>
 
             <p:column headerText="Average Score">
