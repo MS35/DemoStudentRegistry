@@ -48,7 +48,12 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public String generateStudentId(String name, String surname) {
-		return String.valueOf(findAllStudents().size()) + name.charAt(0) + surname.charAt(0) + LocalDate.now().getYear();
+		StringBuilder builder = new StringBuilder();
+		builder.append(name.charAt(0));
+		builder.append(LocalDate.now().getYear());
+		builder.append(findAllStudents().size());
+		builder.append(surname.charAt(0));
+		return builder.toString();
 	}
 
 }
